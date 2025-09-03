@@ -22,43 +22,44 @@ Includes endpoints to create and list tasks in memory. 🚀
    ```
 
 2. Run the server:
-```bash
+  ```bash
    go run main.go
- ```
+   ```
 
 ## 📡 Endpoints
-- ➕ Create a task
-- POST /tasks
-- Content-Type: application/json
+  - ➕ Create a task
+  - POST /tasks
+  - Content-Type: application/json
 
 ## Example body:
 
-```bash
-{ "title": "Finish the test", "done": false }
-```
+  ```bash
+  { "title": "Finish the test", "done": false }
+  ```
 
 ## Example response:
 
-```bash
-{ "id": 1, "title": "Finish the test", "done": false }
-```
+  ```bash
+  { "id": 1, "title": "Finish the test", "done": false }
+  ```
+
 ## 📋 Get all tasks
 
-- GET /tasks
+  - GET /tasks
 
 ## Example response:
-```bash
-[
-  { "id": 1, "title": "Finish the test", "done": false }
-]
-```
+  ```bash
+  [
+   { "id": 1, "title": "Finish the test", "done": false }
+  ]
+  ```
 
 ## ⚡ Tech Stack
 
-- Go 1.21+
-- net/http (standard library)
-- sync.Mutex for concurrency
+  - Go 1.21+
+  - net/http (standard library)
+  - sync.Mutex for concurrency
 
 ## 👩‍💻 Author
 
-Built with 💜 by elizabthpazp
+  Built with 💜 by elizabthpazp
