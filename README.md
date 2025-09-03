@@ -19,41 +19,44 @@ Includes endpoints to create and list tasks in memory. 🚀
    ```bash
    git clone https://github.com/yourusername/go-tasks.git
    cd go-tasks
-Run the server:
+   ```
 
-2. go run main.go
+2. Run the server:
+```bash
+   go run main.go
+ ```
 
 ## 📡 Endpoints
 - ➕ Create a task
 - POST /tasks
 - Content-Type: application/json
 
-
 ## Example body:
 
-- { "title": "Finish the test", "done": false }
-
+```bash
+{ "title": "Finish the test", "done": false }
+```
 
 ## Example response:
 
-- { "id": 1, "title": "Finish the test", "done": false }
-
+```bash
+{ "id": 1, "title": "Finish the test", "done": false }
+```
 ## 📋 Get all tasks
 
 - GET /tasks
 
 ## Example response:
-
+```bash
 [
   { "id": 1, "title": "Finish the test", "done": false }
 ]
+```
 
 ## ⚡ Tech Stack
 
 - Go 1.21+
-
 - net/http (standard library)
-
 - sync.Mutex for concurrency
 
 ## 👩‍💻 Author
