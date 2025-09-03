@@ -18,6 +18,18 @@ var (
     nextID  = 1
     tasksMu sync.Mutex
 )
+ 
+func enableCORS(w http.ResponseWriter, r *http.Request) bool {
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+ 
+    if r.Method == http.MethodOptions {
+        w.WriteHeader(http.StatusOK)
+        return true
+    }
+    return false
+}
 
 func createTask(w http.ResponseWriter, r *http.Request) {
     var t Task
@@ -46,7 +58,11 @@ func getTasks(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-    http.HandleFunc("/tasks", func(w http.ResponseWriter, r *http.Request) {
+    http.HandleFunc("/tasks", func(w http.ResponseWriter, r *http.Request) { 
+        if handled := enableCORS(w, r); handled {
+            return
+        }
+
         switch r.Method {
         case http.MethodGet:
             getTasks(w, r)
